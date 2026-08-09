@@ -18,8 +18,7 @@ export default function ContactUs() {
           />
 
 <div >
-    <div className="sfContentBlock sf-Long-text" ><section className="description-eg"><div className="container"><div className="row"><div className="col-sm-12"><p>Reach out to our team for any inquiries, customized advice, or to explore our premium offerings in Ras El Hekma.</p><div className="number-box flex-column"><div className="contact-item d-flex"><img src="/ResourcePackages/ModonCorporate/Assets/src/Assets/images/call-black.svg" alt="Phone" data-sf-ec-immutable="" />&nbsp;
- <a href="tel:7734" data-sf-ec-immutable=""><strong>Inside Egypt:</strong>7734</a>
+    <div className="sfContentBlock sf-Long-text" ><section className="description-eg"><div className="container"><div className="row"><div className="col-sm-12"><p>Reach out to our team for any inquiries, customized advice, or to explore our premium offerings in Ras El Hekma.</p><div className="number-box flex-column"><div className="contact-item d-flex">&nbsp;
  </div><div className="contact-item d-flex"><img src="/ResourcePackages/ModonCorporate/Assets/src/Assets/images/call-black.svg" alt="Mobile" data-sf-ec-immutable="" />&nbsp;<a href="tel:+201122222734" data-sf-ec-immutable=""><strong>Outside Egypt:</strong>+20 112 222 2734</a>
  </div>
  </div></div></div></div></section></div>
