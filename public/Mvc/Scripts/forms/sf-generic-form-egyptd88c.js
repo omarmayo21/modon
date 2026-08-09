@@ -280,7 +280,7 @@ $.validator.setDefaults({
 			if (iti) {
 				var countryData = iti.getSelectedCountryData();
 				var dialCode = "+" + countryData.dialCode;
-				var rawMobile = iti.getNumber();
+				var rawMobile = $(this).find("#PhoneNumber").val(); // The national number user typed
 				var countryName = countryData.name;
 
 				$(this).find("#00NVH000003TdQr").val(dialCode);

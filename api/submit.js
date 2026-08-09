@@ -23,35 +23,73 @@ export default async function handler(req, res) {
             '00NVH00000303CJ': preferredContactTime,
             '00NHp00000lQiTk': nationality,
             '00NHp00000lQiTv': purposeOfUse,
-            redirectUrl
+            '00NVH000003Z6wv': brandCompany,
+            '00NHp00000tWW0R': project,
+            lead_source: leadSource,
+            consentCheck,
+            '00NHp00000rkes6': utmSource,
+            '00NVH000004mXYr': utmMedium,
+            '00NHp00000rkeyC': utmCampaign,
+            '00NVH000005PrKn': utmUrl,
+            redirectUrl,
+            Submit
         } = body;
 
         // Build HTML Email Content
         let htmlContent = `
             <h2>New Lead Registration</h2>
-            <p><strong>First Name:</strong> ${first_name || 'N/A'}</p>
-            <p><strong>Last Name:</strong> ${last_name || 'N/A'}</p>
-            <p><strong>Email:</strong> ${email || 'N/A'}</p>
-            <p><strong>Mobile (Input):</strong> ${PhoneNumber || 'N/A'}</p>
-            <p><strong>Country:</strong> ${CountryName || 'N/A'}</p>
-            <p><strong>Country Code:</strong> ${countryCode || 'N/A'}</p>
-            <p><strong>Raw Mobile:</strong> ${mobile || 'N/A'}</p>
-            <p><strong>Country of Residence:</strong> ${countryOfResidence || 'N/A'}</p>
-            <p><strong>Preferred Contact Time:</strong> ${preferredContactTime || 'N/A'}</p>
-            <p><strong>Nationality:</strong> ${nationality || 'N/A'}</p>
-            <p><strong>Purpose of Use:</strong> ${purposeOfUse || 'N/A'}</p>
+
+            <h3>Lead Information</h3>
+            <hr />
+            ${first_name ? `<p><strong>First Name:</strong> ${first_name}</p>` : ''}
+            ${last_name ? `<p><strong>Last Name:</strong> ${last_name}</p>` : ''}
+            ${email ? `<p><strong>Email:</strong> ${email}</p>` : ''}
+            ${countryCode && mobile ? `<p><strong>Mobile:</strong> ${countryCode} ${mobile}</p>` : ''}
+            ${countryCode ? `<p><strong>Country Code:</strong> ${countryCode}</p>` : ''}
+            ${mobile ? `<p><strong>National Mobile:</strong> ${mobile}</p>` : ''}
+            ${countryOfResidence ? `<p><strong>Country of Residence:</strong> ${countryOfResidence}</p>` : ''}
+            ${preferredContactTime ? `<p><strong>Preferred Contact Time:</strong> ${preferredContactTime}</p>` : ''}
+            ${nationality ? `<p><strong>Nationality:</strong> ${nationality}</p>` : ''}
+            ${purposeOfUse ? `<p><strong>Purpose of Use:</strong> ${purposeOfUse}</p>` : ''}
+
             <br />
-            <h3>Tracking & UTM Parameters</h3>
+            <h3>Tracking & Campaign</h3>
+            <hr />
+            ${brandCompany ? `<p><strong>Brand/Company:</strong> ${brandCompany}</p>` : ''}
+            ${project ? `<p><strong>Project:</strong> ${project}</p>` : ''}
+            ${leadSource ? `<p><strong>Lead Source:</strong> ${leadSource}</p>` : ''}
+            ${consentCheck ? `<p><strong>Consent:</strong> ${consentCheck === 'on' ? 'Yes' : consentCheck}</p>` : ''}
+
+            <br />
+            <h3>UTM Parameters</h3>
+            <hr />
+            ${utmSource ? `<p><strong>UTM Source:</strong> ${utmSource}</p>` : ''}
+            ${utmMedium ? `<p><strong>UTM Medium:</strong> ${utmMedium}</p>` : ''}
+            ${utmCampaign ? `<p><strong>UTM Campaign:</strong> ${utmCampaign}</p>` : ''}
+            ${utmUrl ? `<p><strong>UTM URL:</strong> ${utmUrl}</p>` : ''}
         `;
 
-        // Dynamically add all fields just in case they aren't explicitly destructured above
+        // Check for any unknown/unmapped fields and list them at the bottom
+        const knownFields = [
+            'first_name', 'last_name', 'email', 'PhoneNumber', 'mobile', 'CountryName',
+            '00NVH000003TdQr', '00NVH000002y6iv', '00NVH00000303CJ', '00NHp00000lQiTk', '00NHp00000lQiTv',
+            '00NVH000003Z6wv', '00NHp00000tWW0R', 'lead_source', 'consentCheck',
+            '00NHp00000rkes6', '00NVH000004mXYr', '00NHp00000rkeyC', '00NVH000005PrKn',
+            'redirectUrl', 'Submit'
+        ];
+
+        let hasUnknownFields = false;
+        let unknownFieldsHtml = `<br /><h3>Other Fields</h3><hr />`;
+        
         for (const [key, value] of Object.entries(body)) {
-            // Skip redirectUrl, and fields we already added
-            if (['redirectUrl', 'first_name', 'last_name', 'email', 'PhoneNumber', 'mobile', 'CountryName',
-                 '00NVH000003TdQr', '00NVH000002y6iv', '00NVH00000303CJ', '00NHp00000lQiTk', '00NHp00000lQiTv'].includes(key)) {
-                continue;
+            if (!knownFields.includes(key) && value) {
+                hasUnknownFields = true;
+                unknownFieldsHtml += `<p><strong>Unknown Tracking Field (${key}):</strong> ${value}</p>`;
             }
-            htmlContent += `<p><strong>${key}:</strong> ${value}</p>`;
+        }
+
+        if (hasUnknownFields) {
+            htmlContent += unknownFieldsHtml;
         }
 
         // Configure Nodemailer Transport
