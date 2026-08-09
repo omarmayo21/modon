@@ -21,6 +21,11 @@ export default function RasElHekma() {
     const spotlightSwiperRef = useRef<any>(null);
 
     useEffect(() => {
+        // Initialize the legacy form plugins now that the form DOM is mounted
+        if (typeof (window as any).initModonForm === 'function') {
+            (window as any).initModonForm();
+        }
+
         // Safe React Hero Image Resize Logic
         const handleResize = () => {
             const screenWidth = window.innerWidth;

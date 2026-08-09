@@ -1,19 +1,7 @@
-window.initModonLegacyJS = function () {
-	// header script starts here
-	if (window.AOS) {
-		AOS.init({
-			once: true
-		});
-		AOS.refreshHard();
-	}
-
+window.initModonForm = function () {
 	if (window.initModonFormValidation) {
 		window.initModonFormValidation();
 	}
-
-	setTimeout(() => {
-		$('.visual-anim').addClass('show')
-	}, 500);
 
 	// Re-initialize intlTelInput for forms
 	if (window.intlTelInput) {
@@ -41,6 +29,22 @@ window.initModonLegacyJS = function () {
 			});
 		});
 	}
+};
+
+window.initModonLegacyJS = function () {
+	// header script starts here
+	if (window.AOS) {
+		AOS.init({
+			once: true
+		});
+		AOS.refreshHard();
+	}
+
+	window.initModonForm();
+
+	setTimeout(() => {
+		$('.visual-anim').addClass('show')
+	}, 500);
 
 	$("iframe.euro-frame").each(function () {
 		var src = $(this).attr('src').replace(/\amp;/g, '');

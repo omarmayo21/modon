@@ -1,9 +1,15 @@
 // @ts-nocheck
-import React from 'react';
+import React, { useEffect } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
 export default function ContactUs() {
+	useEffect(() => {
+		if (typeof (window as any).initModonForm === 'function') {
+			(window as any).initModonForm();
+		}
+	}, []);
+
 	return (
 		<div className="content-wrapper">
 			<Header />
