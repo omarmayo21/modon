@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-16"?>
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g id="finance_mode">
+    <mask id="mask0_2553_9386" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="32" height="32">
+      <rect id="Bounding box" width="32" height="32" fill="#D9D9D9" />
+    </mask>
+    <g mask="url(#mask0_2553_9386)">
+      <path id="finance_mode_2" d="M11.5623 16.2889V8.9656H13.4087V16.2889L12.494 15.2989L11.5623 16.2889ZM17.3093 19.5759V3.5896H19.1557V17.7299L17.3093 19.5759ZM5.78133 22.0496V14.3639H7.62733V20.2033L5.78133 22.0496ZM5.58966 27.3999L12.5213 20.4683L17.342 24.6376L26.73 15.2323H23.4307V14.1043H28.6667V19.3349H27.5383V16.0359L17.3453 26.2289L12.542 22.0649L7.20666 27.3999H5.58966Z" fill="#B2AA98" />
+    </g>
+  </g>
+</svg>

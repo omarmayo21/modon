@@ -1,0 +1,136 @@
+/* Real Estate Footer — Figma node 19-663 */
+
+/* Self-contained font faces: this widget can render on pages that don't
+   load the global style.css, so declare the Suisse faces it needs here. */
+@font-face {
+    font-family: "SuisseIntl-Regular";
+    src:
+        url("../fonts/SuisseIntl-Regular.woff2") format("woff2"),
+        url("../fonts/SuisseIntl-Regular.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "SuisseIntl-Medium";
+    src:
+        url("../fonts/SuisseIntl-Medium.woff2") format("woff2"),
+        url("../fonts/SuisseIntl-Medium.woff") format("woff");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+.re-footer {
+    --re-footer-background: #f4f4f4;
+    --re-footer-text-color: #000000;
+    --re-footer-max-width: 1100px;
+    --re-footer-gutter: 64px;
+    --re-footer-top-padding: 54px;
+    --re-footer-bottom-padding: 60px;
+    --re-footer-column-width: 192px;
+    --re-footer-section-gap: 84px;
+    --re-footer-row-gap: 40px;
+    --re-footer-link-gap: 16px;
+    --re-footer-header-gap: 20px;
+    width: 100%;
+    background: var(--re-footer-background);
+    color: var(--re-footer-text-color);
+    box-sizing: border-box;
+    padding: var(--re-footer-top-padding) 0 var(--re-footer-bottom-padding);
+}
+
+.re-footer *,
+.re-footer *::before,
+.re-footer *::after {
+    box-sizing: border-box;
+}
+
+.re-footer__inner {
+    max-width: calc(var(--re-footer-max-width) + var(--re-footer-gutter) * 2);
+    margin: 0 auto;
+    padding: 0 var(--re-footer-gutter);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: center;
+    gap: var(--re-footer-row-gap) var(--re-footer-section-gap);
+}
+
+.re-footer__section {
+    width: var(--re-footer-column-width);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.re-footer__header {
+    margin: 0 0 var(--re-footer-header-gap);
+    font-family: "SuisseIntl-Medium", "Helvetica Neue", Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 13.5px;
+    color: inherit;
+    text-transform: uppercase;
+}
+
+.re-footer__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--re-footer-link-gap);
+}
+
+.re-footer__link {
+    display: inline-block;
+    font-family: "SuisseIntl-Regular", "Helvetica Neue", Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 16.5px;
+    color: inherit;
+    text-decoration: none;
+    white-space: nowrap;
+    transition:
+        opacity 0.2s ease,
+        text-decoration-color 0.2s ease;
+}
+
+.re-footer__link:hover,
+.re-footer__link:focus {
+    text-decoration: underline;
+    text-underline-offset: 0.18em;
+    text-decoration-thickness: 1px;
+}
+
+@media (min-width: 768px) and (max-width: 1199.98px) {
+    .re-footer {
+        --re-footer-gutter: 32px;
+        --re-footer-section-gap: 48px;
+        --re-footer-row-gap: 32px;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .re-footer {
+        --re-footer-gutter: 20px;
+        --re-footer-top-padding: 32px;
+        --re-footer-bottom-padding: 32px;
+    }
+
+    .re-footer__inner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--re-footer-section-gap);
+    }
+
+    .re-footer__section {
+        width: 100%;
+    }
+
+    .re-footer__link {
+        white-space: normal;
+    }
+}
