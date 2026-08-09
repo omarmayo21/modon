@@ -402,9 +402,9 @@ export default function RasElHekma() {
 				<div className="title mb-3">Register your interest</div>
 			</div>
 
-	<form className="form contact" id="generic-project-form" action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&amp;orgId=00DHp0000025zhx" method="POST">
+	<form className="form contact" id="generic-project-form" action="/api/submit" method="POST">
 		<input type="hidden" name="oid" value="00DHp0000025zhx" />
-		<input type="hidden" name="retURL" value="ras-el-hekma/thank-you-page.html" />
+		<input type="hidden" name="retURL" value={window.location.origin + "/real-estate/ras-el-hekma/thank-you"} />
 
 		<div className="form-group">
 			<label htmlFor="first_name">First Name*</label>

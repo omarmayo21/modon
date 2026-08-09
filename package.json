@@ -12,8 +12,10 @@
   "dependencies": {
     "@types/aos": "^3.0.8",
     "@types/leaflet": "^1.9.22",
+    "@types/nodemailer": "^8.0.1",
     "aos": "^2.3.4",
     "leaflet": "^1.9.4",
+    "nodemailer": "^9.0.5",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
     "react-leaflet": "^5.0.0",
