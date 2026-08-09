@@ -1,6 +1,7 @@
 export const initAnalytics = () => {
   const GA_ID = import.meta.env.VITE_GA_MEASUREMENT_ID;
   const GTM_ID = import.meta.env.VITE_GTM_ID;
+  const GADS_ID = import.meta.env.VITE_GOOGLE_ADS_ID;
 
   if (typeof window === 'undefined') return;
 
@@ -13,16 +14,23 @@ export const initAnalytics = () => {
     (window as any).gtag('js', new Date());
   }
 
-  // Load GA4
-  if (GA_ID && !document.querySelector(`script[src*="id=${GA_ID}"]`)) {
+  // Load GA4 & Google Ads base script (they share the same tag)
+  const primaryId = GA_ID || GADS_ID;
+  if (primaryId && !document.querySelector(`script[src*="id=${primaryId}"]`)) {
     const script = document.createElement('script');
-    script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`;
+    script.src = `https://www.googletagmanager.com/gtag/js?id=${primaryId}`;
     script.async = true;
     document.head.appendChild(script);
+  }
 
+  if (GA_ID) {
     (window as any).gtag('config', GA_ID, {
       send_page_view: false, // We'll handle this manually for SPA
     });
+  }
+
+  if (GADS_ID) {
+    (window as any).gtag('config', GADS_ID);
   }
 
   // Load GTM

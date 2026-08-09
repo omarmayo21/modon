@@ -1,4 +1,5 @@
 import nodemailer from 'nodemailer';
+import { google } from 'googleapis';
 
 export default async function handler(req, res) {
     if (req.method !== 'POST') {
@@ -112,6 +113,84 @@ export default async function handler(req, res) {
         });
 
         console.log('Email sent successfully!');
+
+        // ---- Google Sheets Integration ----
+        const sheetId = process.env.GOOGLE_SHEET_ID;
+        const clientEmail = process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL;
+        const privateKey = process.env.GOOGLE_PRIVATE_KEY;
+
+        if (sheetId && clientEmail && privateKey) {
+            try {
+                // Initialize Auth
+                const auth = new google.auth.GoogleAuth({
+                    credentials: {
+                        client_email: clientEmail,
+                        private_key: privateKey.replace(/\\n/g, '\n')
+                    },
+                    scopes: ['https://www.googleapis.com/auth/spreadsheets']
+                });
+
+                const sheets = google.sheets({ version: 'v4', auth });
+
+                // 1. Fetch spreadsheet metadata to get the first sheet's title
+                const meta = await sheets.spreadsheets.get({ spreadsheetId: sheetId });
+                const firstSheetTitle = meta.data.sheets[0].properties.title;
+
+                // 2. Prepare the row data
+                const row = [
+                    new Date().toISOString(),
+                    first_name || '',
+                    last_name || '',
+                    email || '',
+                    mobile || PhoneNumber || '',
+                    countryCode || '',
+                    countryOfResidence || '',
+                    preferredContactTime || '',
+                    nationality || '',
+                    purposeOfUse || '',
+                    brandCompany || '',
+                    project || '',
+                    leadSource || '',
+                    consentCheck || '',
+                    utmSource || '',
+                    utmMedium || '',
+                    utmCampaign || '',
+                    body['utm_term'] || '',     // Just in case it exists in body
+                    body['utm_content'] || '',  // Just in case it exists in body
+                    body['gclid'] || '',
+                    body['fbclid'] || ''
+                ];
+
+                // Append any unknown tracking fields at the end
+                for (const [key, value] of Object.entries(body)) {
+                    if (!knownFields.includes(key) && !['utm_term', 'utm_content', 'gclid', 'fbclid'].includes(key) && value) {
+                        row.push(`${key}: ${value}`);
+                    }
+                }
+
+                // 3. Append to the first sheet
+                await sheets.spreadsheets.values.append({
+                    spreadsheetId: sheetId,
+                    range: `${firstSheetTitle}!A:A`, // A broad range allows appending to the bottom
+                    valueInputOption: 'USER_ENTERED',
+                    requestBody: {
+                        values: [row]
+                    }
+                });
+
+                console.log('Lead appended to Google Sheets successfully!');
+            } catch (sheetError) {
+                console.error('Error appending to Google Sheets:', sheetError);
+                // Halt conversion if Google Sheets fails
+                const referer = req.headers.referer;
+                if (referer) {
+                    const separator = referer.includes('?') ? '&' : '?';
+                    return res.redirect(302, `${referer}${separator}lead_error=1&error_type=google_sheets_failed`);
+                }
+                return res.status(500).json({ error: 'Google Sheets Error' });
+            }
+        }
+        // ---- End Google Sheets Integration ----
 
         // Redirect safely to the success page as per standard form submission behavior
         if (redirectUrl) {

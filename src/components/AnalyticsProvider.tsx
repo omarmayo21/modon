@@ -34,6 +34,15 @@ export default function AnalyticsProvider({ children }: { children: React.ReactN
         page_title: document.title,
       });
 
+      // Fire Google Ads conversion exactly once
+      const gadsConversionId = import.meta.env.VITE_GOOGLE_ADS_CONVERSION_ID;
+      const gadsConversionLabel = import.meta.env.VITE_GOOGLE_ADS_CONVERSION_LABEL;
+      if (gadsConversionId && gadsConversionLabel && typeof (window as any).gtag === 'function') {
+        (window as any).gtag('event', 'conversion', {
+          send_to: `${gadsConversionId}/${gadsConversionLabel}`,
+        });
+      }
+
       // Clear the query param to prevent duplicate events on refresh
       searchParams.delete('lead_success');
       const newSearch = searchParams.toString();
