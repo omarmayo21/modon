@@ -7,9 +7,40 @@ window.initModonLegacyJS = function () {
 		AOS.refreshHard();
 	}
 
+	if (window.initModonFormValidation) {
+		window.initModonFormValidation();
+	}
+
 	setTimeout(() => {
 		$('.visual-anim').addClass('show')
 	}, 500);
+
+	// Re-initialize intlTelInput for forms
+	if (window.intlTelInput) {
+		var phoneInputs = $("#generic-project-form").find('.phone');
+		phoneInputs.each(function () {
+			var input = this;
+			
+			// Prevent duplicates by checking if it's already wrapped, or try to destroy it
+			if (window.intlTelInputGlobals && window.intlTelInputGlobals.getInstance) {
+				var existingInst = window.intlTelInputGlobals.getInstance(input);
+				if (existingInst) {
+					existingInst.destroy();
+				}
+			} else if ($(input).closest('.iti').length > 0) {
+				// Fallback if getInstance is unavailable: skip if already initialized
+				return;
+			}
+
+			window.intlTelInput(input, {
+				utilsScript: "/ResourcePackages/ModonCorporate/Assets/src/Assets/js/utils.js",
+				separateDialCode: true,
+				initialCountry: "eg",
+				preferredCountries: ["eg"],
+				nationalMode: false
+			});
+		});
+	}
 
 	$("iframe.euro-frame").each(function () {
 		var src = $(this).attr('src').replace(/\amp;/g, '');

@@ -1,6 +1,8 @@
-$(document).ready(function () {
+window.initModonFormValidation = function () {
 	// Contact Us SalesForce Form
-	$("#generic-project-form").validate({
+	var $form = $("#generic-project-form");
+	if ($form.length && !$form.data('validator')) {
+		$form.validate({
 		errorElement: "span",
 		rules: {
 			first_name: {
@@ -54,6 +56,7 @@ $(document).ready(function () {
 			consentCheck: ''
 		}
 	});
+	}
 
 	$('#00NHp00000rkes6').val($.urlParam('utm_source').replace(/%20/g, " "));
 	$('#00NHp00000rkeyC').val($.urlParam('utm_campaign').replace(/%20/g, " "));
@@ -71,24 +74,13 @@ $(document).ready(function () {
 	//}
 
 
-	var phoneInputs = $("#generic-project-form").find('.phone');
 
-	phoneInputs.each(function () {
-		var input = this; // Get the current input element
-		window.intlTelInput(input, {
-			utilsScript: "/ResourcePackages/ModonCorporate/Assets/src/Assets/js/utils.js",
-			separateDialCode: true,
-			initialCountry: "eg",
-			preferredCountries: ["eg"],
-			nationalMode: false
-		});
-	});
 	$("#first_name,#last_name").on('input', function () {
 		$(this).val($(this).val().replace(/[^A-Za-z+\s]/g, ''))
 	});
 
 	onSFFormload();
-});
+};
 function validate(event) {
 	var form = $("#generic-project-form");
 	if (!form.valid()) {
