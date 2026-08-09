@@ -109,7 +109,17 @@ jQuery.validator.addMethod("loqatephone", function (value, element) {
 			},
 			async: false, // Synchronous request
 			success: function (response) {
-				if (response.Items && response.Items[0].IsValid === "Yes") {
+				if (response.Items && response.Items[0].Error) {
+					// Fallback if API fails
+					var existingInst = window.intlTelInputGlobals ? window.intlTelInputGlobals.getInstance(element) : null;
+					if (existingInst) {
+						isValid = existingInst.isValidNumber();
+					} else {
+						isValid = /^[0-9\s\-]{7,15}$/.test(value);
+					}
+					if (isValid) $(element).addClass('loqateValid');
+					else $(element).removeClass('loqateValid');
+				} else if (response.Items && response.Items[0].IsValid === "Yes") {
 					//if (response.Items && response.Items[0].Error === "13") {
 					isValid = true;
 					$(element).addClass('loqateValid');
@@ -119,8 +129,14 @@ jQuery.validator.addMethod("loqatephone", function (value, element) {
 				}
 			},
 			error: function () {
-				isValid = false;
-				$(element).removeClass('loqateValid');
+				var existingInst = window.intlTelInputGlobals ? window.intlTelInputGlobals.getInstance(element) : null;
+				if (existingInst) {
+					isValid = existingInst.isValidNumber();
+				} else {
+					isValid = /^[0-9\s\-]{7,15}$/.test(value);
+				}
+				if (isValid) $(element).addClass('loqateValid');
+				else $(element).removeClass('loqateValid');
 			}
 		});
 		$(element).closest('.form-group').find('.spinner-border').addClass('d-none');
@@ -146,7 +162,13 @@ jQuery.validator.addMethod("loqateemail", function (value, element) {
 			},
 			async: false, // Synchronous request
 			success: function (response) {
-				if (response.Items && response.Items[0].ResponseCode === "Valid") {
+				if (response.Items && response.Items[0].Error) {
+					// Fallback if API fails (e.g. CORS/URL not allowed)
+					var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+					isValid = emailRegex.test(value);
+					if (isValid) $(element).addClass('loqateValid');
+					else $(element).removeClass('loqateValid');
+				} else if (response.Items && response.Items[0].ResponseCode === "Valid") {
 					isValid = true;
 					$(element).addClass('loqateValid');
 				} else {
@@ -155,8 +177,10 @@ jQuery.validator.addMethod("loqateemail", function (value, element) {
 				}
 			},
 			error: function () {
-				isValid = false;
-				$(element).removeClass('loqateValid');
+				var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+				isValid = emailRegex.test(value);
+				if (isValid) $(element).addClass('loqateValid');
+				else $(element).removeClass('loqateValid');
 			}
 		});
 		$(element).closest('.form-group').find('.spinner-border').addClass('d-none');
