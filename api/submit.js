@@ -153,7 +153,7 @@ export default async function handler(req, res) {
                 await sheets.spreadsheets.values.append({
                     spreadsheetId: sheetId,
                     range: `${firstSheetTitle}!A:A`, // A broad range allows appending to the bottom
-                    valueInputOption: 'USER_ENTERED',
+                    valueInputOption: 'RAW',
                     requestBody: {
                         values: [row]
                     }
