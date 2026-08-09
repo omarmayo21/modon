@@ -112,10 +112,13 @@ jQuery.validator.addMethod("loqatephone", function (value, element) {
 				if (response.Items && response.Items[0].Error) {
 					// Fallback if API fails
 					var existingInst = window.intlTelInputGlobals ? window.intlTelInputGlobals.getInstance(element) : null;
-					if (existingInst) {
+					var fallbackRegex = /^[0-9\s\-]{7,15}$/;
+					if (existingInst && typeof window.intlTelInputUtils !== 'undefined') {
 						isValid = existingInst.isValidNumber();
+						// If intlTelInput rejects due to strict formatting (like leading zeros), fallback to regex
+						if (!isValid) isValid = fallbackRegex.test(value);
 					} else {
-						isValid = /^[0-9\s\-]{7,15}$/.test(value);
+						isValid = fallbackRegex.test(value);
 					}
 					if (isValid) $(element).addClass('loqateValid');
 					else $(element).removeClass('loqateValid');
@@ -130,10 +133,12 @@ jQuery.validator.addMethod("loqatephone", function (value, element) {
 			},
 			error: function () {
 				var existingInst = window.intlTelInputGlobals ? window.intlTelInputGlobals.getInstance(element) : null;
-				if (existingInst) {
+				var fallbackRegex = /^[0-9\s\-]{7,15}$/;
+				if (existingInst && typeof window.intlTelInputUtils !== 'undefined') {
 					isValid = existingInst.isValidNumber();
+					if (!isValid) isValid = fallbackRegex.test(value);
 				} else {
-					isValid = /^[0-9\s\-]{7,15}$/.test(value);
+					isValid = fallbackRegex.test(value);
 				}
 				if (isValid) $(element).addClass('loqateValid');
 				else $(element).removeClass('loqateValid');
