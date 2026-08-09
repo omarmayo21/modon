@@ -44,7 +44,7 @@ export default async function handler(req, res) {
             ${first_name ? `<p><strong>First Name:</strong> ${first_name}</p>` : ''}
             ${last_name ? `<p><strong>Last Name:</strong> ${last_name}</p>` : ''}
             ${email ? `<p><strong>Email:</strong> ${email}</p>` : ''}
-            ${countryCode && mobile ? `<p><strong>Mobile:</strong> ${countryCode} ${mobile}</p>` : ''}
+            <p><strong>Mobile:</strong> ${countryCode ? countryCode + ' ' : ''}${mobile || PhoneNumber || 'N/A'}</p>
             ${countryCode ? `<p><strong>Country Code:</strong> ${countryCode}</p>` : ''}
             ${mobile ? `<p><strong>National Mobile:</strong> ${mobile}</p>` : ''}
             ${countryOfResidence ? `<p><strong>Country of Residence:</strong> ${countryOfResidence}</p>` : ''}
