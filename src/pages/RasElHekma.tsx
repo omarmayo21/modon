@@ -150,248 +150,9 @@ export default function RasElHekma() {
 			</div>
 		</div>
 	</section>
+	
 
-
-
-
-	<section className="detailed-block-section">
-		<div className="container">
-			<div className="row">
-				<div className="col-md-6">
-						<div className="img-outer">
-							<img src="/images/modoncorporatelibraries/about-us/17d49.webp?sfvrsn=c2755bb7_1" alt='' title='1' />
-						</div>
-				</div>
-				<div className="col-md-6">
-					<div className="details">
-													<div className="desc"><div className="highlight">Designed around 17 curated precincts, Ras El&nbsp;Hekma&nbsp;is where serenity and elegant design is inset with vibrant hubs for future living.
-</div><p>Surrounded by nature and connected to the world, Ras El Hekma&nbsp;offers seamless access by road, sea, and air. It&rsquo;s a city where schools and state-of-the-art business facilities sit side by side with wellness&nbsp;centres, resorts, golf courses, and outstanding marinas.&nbsp;Designed to redefine modern living, this is a place that takes the best of Egyptian energy and Mediterranean&nbsp;beauty, and&nbsp;imagines something better.&nbsp;</p></div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-
-
-
-
-
-
-	<section className="detailed-block-section right-align">
-		<div className="container">
-			<div className="row">
-				<div className="col-md-6">
-						<div className="img-outer">
-							<img src="/images/modoncorporatelibraries/about-us/ras-el-hekma-promo2af8d.webp?sfvrsn=846f014a_1" alt='Ras El Hekma' title='Ras-El-Hekma-promo2' />
-						</div>
-				</div>
-				<div className="col-md-6">
-					<div className="details">
-													<div className="desc"><div className="highlight">Wadi Yemm: The opening chapter of Ras El Hekma
-</div><p>Marking the first launch of 17 distinctive precincts, Wadi Yemm introduces an elegant take on coastal living. Set along sun-drenched shores and framed by turquoise waters, this Mediterranean-inspired neighbourhood brings a more relaxed rhythm to modern life.&nbsp;Designed for movement and connection, its pedestrian boulevards, waterfront pools, and green spaces make wellness a natural state of being.&nbsp;</p></div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-
-
-
-
-
-    </div>
-</div>
-<div data-sf-element="Row">
-    <div id="Contentplaceholder1_T620A45DA001_Col01" className="sf_colsIn" data-sf-element="Activities" data-placeholder-label="Activities">
-
-    </div>
-</div>
-<div data-sf-element="Row">
-    <div id="Contentplaceholder1_T620A45DA001_Col02" className="sf_colsIn" data-sf-element="Location" data-placeholder-label="Location">
-<div >
-    <div className="sfContentBlock sf-Long-text" ><div className="nawayef-map-section">
-    <div className="container">
-        <div className="row">
-            <div className="col-sm-12">
-                <div className="map-outer"><img src="/images/modoncorporatelibraries/maps/ras-el-hekma-mapb389.webp?sfvrsn=112d73e7_1" className="w-100 sf-immutable-selected" alt="" sf-size={365294} /></div>
-            </div>
-        </div>
-    </div>
-</div></div>
-</div>
-    </div>
-</div>
-<div data-sf-element="Row">
-    <div id="Contentplaceholder1_T620A45DA001_Col03" className="sf_colsIn" data-sf-element="Updates" data-placeholder-label="Updates">
-    </div>
-</div>
-		<section className="realestate-gallery-section">
-			<div className="container">
-				<div className="row">
-					<div className="col-sm-12">
-						<div className="title-section">
-							<h2 className="title">Gallery</h2>
-							<div className="btn-wrapper">
-								<span id="galleryPrev"><img src="/ResourcePackages/ModonCorporate/Assets/src/Assets/images/rightarrowlink.svg" alt="" /></span>
-								<span id="galleryNext"><img src="/ResourcePackages/ModonCorporate/Assets/src/Assets/images/leftarrowlink.svg" alt="" /></span>
-							</div>
-						</div>
-						<div className="carousal-outer">
-							<div className="swiper swiper-gallery">
-								<div className="swiper-wrapper">
-										<div className="swiper-slide">
-											<div className="img-outer">
-													<img src="/images/modoncorporatelibraries/about-us/reh6b612.webp?sfvrsn=873b3a2f_1" alt="" />
-											</div>
-										</div>
-										<div className="swiper-slide">
-											<div className="img-outer">
-													<img src="/images/modoncorporatelibraries/about-us/reh56a0b.webp?sfvrsn=7b0d70c_1" alt="" />
-											</div>
-										</div>
-										<div className="swiper-slide">
-											<div className="img-outer">
-													<img src="/images/modoncorporatelibraries/about-us/reh42127.webp?sfvrsn=104570f_1" alt="" />
-											</div>
-										</div>
-										<div className="swiper-slide">
-											<div className="img-outer">
-													<img src="/images/modoncorporatelibraries/about-us/reh3ae73.webp?sfvrsn=7e46c525_1" alt="" />
-											</div>
-										</div>
-										<div className="swiper-slide">
-											<div className="img-outer">
-													<img src="/images/modoncorporatelibraries/about-us/reh2b2b0.webp?sfvrsn=138a4856_1" alt="" />
-											</div>
-										</div>
-										<div className="swiper-slide">
-											<div className="img-outer">
-													<img src="/images/modoncorporatelibraries/about-us/reh165d5.webp?sfvrsn=cf8d5fe9_1" alt="" />
-											</div>
-										</div>
-								</div>
-								<div className="swiper-button-next gallery-next"></div>
-								<div className="swiper-button-prev gallery-prev"></div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-
-	<section className="faq-section">
-		<div className="container">
-			<div className="row" data-aos="fade-up" data-aos-duration="2000">
-				<div className="col-sm-12">
-					<div className="section-title">Frequently Asked Questions</div>
-					<div className="accordion faq-accordion" id="accordionExample">
-							<div className="accordion-item">
-									<div className="accordion-header">
-										<button className="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-												data-bs-target="#collapse-1" aria-expanded="true" aria-controls="collapse-1">
-											What major infrastructure additions are included in the masterplan?
-										</button>
-									</div>
-									<div id="collapse-1" className="accordion-collapse collapse"
-										 data-bs-parent="#accordionExample">
-										<div className="accordion-body">
-											Key infrastructure priorities include the development of a new international airport south of the city and the integration of high-speed road and rail networks for better regional connectivity.
-										</div>
-									</div>
-							</div>
-							<div className="accordion-item">
-									<div className="accordion-header">
-										<button className="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-												data-bs-target="#collapse-2" aria-expanded="true" aria-controls="collapse-2">
-											What are the key types of residential properties planned for Ras El Hekma?
-										</button>
-									</div>
-									<div id="collapse-2" className="accordion-collapse collapse"
-										 data-bs-parent="#accordionExample">
-										<div className="accordion-body">
-											The masterplan includes a wide array of luxury properties, such as villas, townhouses, chalets, apartments and serviced residences, distributed across several dedicated districts.
-										</div>
-									</div>
-							</div>
-							<div className="accordion-item">
-									<div className="accordion-header">
-										<button className="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-												data-bs-target="#collapse-3" aria-expanded="true" aria-controls="collapse-3">
-											What is the total estimated investment in Ras Al Hekma?
-										</button>
-									</div>
-									<div id="collapse-3" className="accordion-collapse collapse"
-										 data-bs-parent="#accordionExample">
-										<div className="accordion-body">
-											The city is being developed with an initial $35 billion investment from ADQ, with projected cumulative investments expected to exceed $150 billion.
-										</div>
-									</div>
-							</div>
-							<div className="accordion-item">
-									<div className="accordion-header">
-										<button className="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-												data-bs-target="#collapse-4" aria-expanded="true" aria-controls="collapse-4">
-											What architectural style will define Ras El Hekma?
-										</button>
-									</div>
-									<div id="collapse-4" className="accordion-collapse collapse"
-										 data-bs-parent="#accordionExample">
-										<div className="accordion-body">
-											The design vision, led by Modon, blends global luxury standards with a strong sense of local heritage. The development incorporates elements of traditional Bedouin architecture, ensuring the city maintains cultural authenticity while offering modern functionality and amenities.&nbsp;
-										</div>
-									</div>
-							</div>
-							<div className="accordion-item">
-									<div className="accordion-header">
-										<button className="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-												data-bs-target="#collapse-5" aria-expanded="true" aria-controls="collapse-5">
-											Are there any specific tax benefits or incentives for foreign investors in Ras El Hekma?
-										</button>
-									</div>
-									<div id="collapse-5" className="accordion-collapse collapse"
-										 data-bs-parent="#accordionExample">
-										<div className="accordion-body">
-											The city will feature a free zone and an investment zone, which will offer significant incentives for investors, such as tax holidays, customs exemptions on equipment, streamlined business licensing and facilitated processes for repatriating profits.
-										</div>
-									</div>
-							</div>
-							<div className="accordion-item">
-									<div className="accordion-header">
-										<button className="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-												data-bs-target="#collapse-6" aria-expanded="true" aria-controls="collapse-6">
-											What leisure facilities will the new city offer?
-										</button>
-									</div>
-									<div id="collapse-6" className="accordion-collapse collapse"
-										 data-bs-parent="#accordionExample">
-										<div className="accordion-body">
-											The masterplan features extensive leisure and tourism amenities, including prestigious international hotels, an international marina and multiple entertainment venues.
-										</div>
-									</div>
-							</div>
-							<div className="accordion-item">
-									<div className="accordion-header">
-										<button className="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-												data-bs-target="#collapse-7" aria-expanded="true" aria-controls="collapse-7">
-											Where is Ras El Hekma located?
-										</button>
-									</div>
-									<div id="collapse-7" className="accordion-collapse collapse"
-										 data-bs-parent="#accordionExample">
-										<div className="accordion-body">
-											Ras El Hekma is located in a picturesque coastal region on Egypt&rsquo;s Mediterranean shoreline in the Western Desert. It lies approximately 70 km east of Mersa Matruh and about 200 km west of Alexandria, placing it in a prime position along the highly desirable North Coast.
-										</div>
-									</div>
-							</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-
-
-
-
+	
 <section data-sf-element="Row" className="location-section realestate-details">
 	<div className="container-lg visual-anim">
 		<div className="row">
@@ -1036,7 +797,248 @@ export default function RasElHekma() {
 			</div>
 		</div>
 	</div>
-</section><div data-sf-element="Row">
+</section><div data-sf-element="Row"></div>
+
+
+
+	<section className="detailed-block-section">
+		<div className="container">
+			<div className="row">
+				<div className="col-md-6">
+						<div className="img-outer">
+							<img src="/images/modoncorporatelibraries/about-us/17d49.webp?sfvrsn=c2755bb7_1" alt='' title='1' />
+						</div>
+				</div>
+				<div className="col-md-6">
+					<div className="details">
+													<div className="desc"><div className="highlight">Designed around 17 curated precincts, Ras El&nbsp;Hekma&nbsp;is where serenity and elegant design is inset with vibrant hubs for future living.
+</div><p>Surrounded by nature and connected to the world, Ras El Hekma&nbsp;offers seamless access by road, sea, and air. It&rsquo;s a city where schools and state-of-the-art business facilities sit side by side with wellness&nbsp;centres, resorts, golf courses, and outstanding marinas.&nbsp;Designed to redefine modern living, this is a place that takes the best of Egyptian energy and Mediterranean&nbsp;beauty, and&nbsp;imagines something better.&nbsp;</p></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+
+
+
+
+	<section className="detailed-block-section right-align">
+		<div className="container">
+			<div className="row">
+				<div className="col-md-6">
+						<div className="img-outer">
+							<img src="/images/modoncorporatelibraries/about-us/ras-el-hekma-promo2af8d.webp?sfvrsn=846f014a_1" alt='Ras El Hekma' title='Ras-El-Hekma-promo2' />
+						</div>
+				</div>
+				<div className="col-md-6">
+					<div className="details">
+													<div className="desc"><div className="highlight">Wadi Yemm: The opening chapter of Ras El Hekma
+</div><p>Marking the first launch of 17 distinctive precincts, Wadi Yemm introduces an elegant take on coastal living. Set along sun-drenched shores and framed by turquoise waters, this Mediterranean-inspired neighbourhood brings a more relaxed rhythm to modern life.&nbsp;Designed for movement and connection, its pedestrian boulevards, waterfront pools, and green spaces make wellness a natural state of being.&nbsp;</p></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+
+
+
+    </div>
+</div>
+<div data-sf-element="Row">
+    <div id="Contentplaceholder1_T620A45DA001_Col01" className="sf_colsIn" data-sf-element="Activities" data-placeholder-label="Activities">
+
+    </div>
+</div>
+<div data-sf-element="Row">
+    <div id="Contentplaceholder1_T620A45DA001_Col02" className="sf_colsIn" data-sf-element="Location" data-placeholder-label="Location">
+<div >
+    <div className="sfContentBlock sf-Long-text" ><div className="nawayef-map-section">
+    <div className="container">
+        <div className="row">
+            <div className="col-sm-12">
+                <div className="map-outer"><img src="/images/modoncorporatelibraries/maps/ras-el-hekma-mapb389.webp?sfvrsn=112d73e7_1" className="w-100 sf-immutable-selected" alt="" sf-size={365294} /></div>
+            </div>
+        </div>
+    </div>
+</div></div>
+</div>
+    </div>
+</div>
+<div data-sf-element="Row">
+    <div id="Contentplaceholder1_T620A45DA001_Col03" className="sf_colsIn" data-sf-element="Updates" data-placeholder-label="Updates">
+    </div>
+</div>
+		<section className="realestate-gallery-section">
+			<div className="container">
+				<div className="row">
+					<div className="col-sm-12">
+						<div className="title-section">
+							<h2 className="title">Gallery</h2>
+							<div className="btn-wrapper">
+								<span id="galleryPrev"><img src="/ResourcePackages/ModonCorporate/Assets/src/Assets/images/rightarrowlink.svg" alt="" /></span>
+								<span id="galleryNext"><img src="/ResourcePackages/ModonCorporate/Assets/src/Assets/images/leftarrowlink.svg" alt="" /></span>
+							</div>
+						</div>
+						<div className="carousal-outer">
+							<div className="swiper swiper-gallery">
+								<div className="swiper-wrapper">
+										<div className="swiper-slide">
+											<div className="img-outer">
+													<img src="/images/modoncorporatelibraries/about-us/reh6b612.webp?sfvrsn=873b3a2f_1" alt="" />
+											</div>
+										</div>
+										<div className="swiper-slide">
+											<div className="img-outer">
+													<img src="/images/modoncorporatelibraries/about-us/reh56a0b.webp?sfvrsn=7b0d70c_1" alt="" />
+											</div>
+										</div>
+										<div className="swiper-slide">
+											<div className="img-outer">
+													<img src="/images/modoncorporatelibraries/about-us/reh42127.webp?sfvrsn=104570f_1" alt="" />
+											</div>
+										</div>
+										<div className="swiper-slide">
+											<div className="img-outer">
+													<img src="/images/modoncorporatelibraries/about-us/reh3ae73.webp?sfvrsn=7e46c525_1" alt="" />
+											</div>
+										</div>
+										<div className="swiper-slide">
+											<div className="img-outer">
+													<img src="/images/modoncorporatelibraries/about-us/reh2b2b0.webp?sfvrsn=138a4856_1" alt="" />
+											</div>
+										</div>
+										<div className="swiper-slide">
+											<div className="img-outer">
+													<img src="/images/modoncorporatelibraries/about-us/reh165d5.webp?sfvrsn=cf8d5fe9_1" alt="" />
+											</div>
+										</div>
+								</div>
+								<div className="swiper-button-next gallery-next"></div>
+								<div className="swiper-button-prev gallery-prev"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+	<section className="faq-section">
+		<div className="container">
+			<div className="row" data-aos="fade-up" data-aos-duration="2000">
+				<div className="col-sm-12">
+					<div className="section-title">Frequently Asked Questions</div>
+					<div className="accordion faq-accordion" id="accordionExample">
+							<div className="accordion-item">
+									<div className="accordion-header">
+										<button className="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+												data-bs-target="#collapse-1" aria-expanded="true" aria-controls="collapse-1">
+											What major infrastructure additions are included in the masterplan?
+										</button>
+									</div>
+									<div id="collapse-1" className="accordion-collapse collapse"
+										 data-bs-parent="#accordionExample">
+										<div className="accordion-body">
+											Key infrastructure priorities include the development of a new international airport south of the city and the integration of high-speed road and rail networks for better regional connectivity.
+										</div>
+									</div>
+							</div>
+							<div className="accordion-item">
+									<div className="accordion-header">
+										<button className="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+												data-bs-target="#collapse-2" aria-expanded="true" aria-controls="collapse-2">
+											What are the key types of residential properties planned for Ras El Hekma?
+										</button>
+									</div>
+									<div id="collapse-2" className="accordion-collapse collapse"
+										 data-bs-parent="#accordionExample">
+										<div className="accordion-body">
+											The masterplan includes a wide array of luxury properties, such as villas, townhouses, chalets, apartments and serviced residences, distributed across several dedicated districts.
+										</div>
+									</div>
+							</div>
+							<div className="accordion-item">
+									<div className="accordion-header">
+										<button className="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+												data-bs-target="#collapse-3" aria-expanded="true" aria-controls="collapse-3">
+											What is the total estimated investment in Ras Al Hekma?
+										</button>
+									</div>
+									<div id="collapse-3" className="accordion-collapse collapse"
+										 data-bs-parent="#accordionExample">
+										<div className="accordion-body">
+											The city is being developed with an initial $35 billion investment from ADQ, with projected cumulative investments expected to exceed $150 billion.
+										</div>
+									</div>
+							</div>
+							<div className="accordion-item">
+									<div className="accordion-header">
+										<button className="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+												data-bs-target="#collapse-4" aria-expanded="true" aria-controls="collapse-4">
+											What architectural style will define Ras El Hekma?
+										</button>
+									</div>
+									<div id="collapse-4" className="accordion-collapse collapse"
+										 data-bs-parent="#accordionExample">
+										<div className="accordion-body">
+											The design vision, led by Modon, blends global luxury standards with a strong sense of local heritage. The development incorporates elements of traditional Bedouin architecture, ensuring the city maintains cultural authenticity while offering modern functionality and amenities.&nbsp;
+										</div>
+									</div>
+							</div>
+							<div className="accordion-item">
+									<div className="accordion-header">
+										<button className="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+												data-bs-target="#collapse-5" aria-expanded="true" aria-controls="collapse-5">
+											Are there any specific tax benefits or incentives for foreign investors in Ras El Hekma?
+										</button>
+									</div>
+									<div id="collapse-5" className="accordion-collapse collapse"
+										 data-bs-parent="#accordionExample">
+										<div className="accordion-body">
+											The city will feature a free zone and an investment zone, which will offer significant incentives for investors, such as tax holidays, customs exemptions on equipment, streamlined business licensing and facilitated processes for repatriating profits.
+										</div>
+									</div>
+							</div>
+							<div className="accordion-item">
+									<div className="accordion-header">
+										<button className="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+												data-bs-target="#collapse-6" aria-expanded="true" aria-controls="collapse-6">
+											What leisure facilities will the new city offer?
+										</button>
+									</div>
+									<div id="collapse-6" className="accordion-collapse collapse"
+										 data-bs-parent="#accordionExample">
+										<div className="accordion-body">
+											The masterplan features extensive leisure and tourism amenities, including prestigious international hotels, an international marina and multiple entertainment venues.
+										</div>
+									</div>
+							</div>
+							<div className="accordion-item">
+									<div className="accordion-header">
+										<button className="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+												data-bs-target="#collapse-7" aria-expanded="true" aria-controls="collapse-7">
+											Where is Ras El Hekma located?
+										</button>
+									</div>
+									<div id="collapse-7" className="accordion-collapse collapse"
+										 data-bs-parent="#accordionExample">
+										<div className="accordion-body">
+											Ras El Hekma is located in a picturesque coastal region on Egypt&rsquo;s Mediterranean shoreline in the Western Desert. It lies approximately 70 km east of Mersa Matruh and about 200 km west of Alexandria, placing it in a prime position along the highly desirable North Coast.
+										</div>
+									</div>
+							</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+
+<div data-sf-element="Row">
     <div id="Contentplaceholder1_T620A45DA005_Col00" className="sf_colsIn" data-sf-element="Generic Placeholder" data-placeholder-label="Generic Placeholder">
     
 
