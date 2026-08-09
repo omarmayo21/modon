@@ -1,6 +1,21 @@
+function pushSafeFormEvent(eventName, formId) {
+	window.dataLayer = window.dataLayer || [];
+	window.dataLayer.push({ event: eventName, form_name: formId });
+	if (typeof window.gtag === 'function') {
+		window.gtag('event', eventName, { form_name: formId });
+	}
+}
+
 window.initModonFormValidation = function () {
 	// Contact Us SalesForce Form
 	var $form = $("#generic-project-form");
+	var formStarted = false;
+	$form.on('input focus', 'input, select, textarea', function() {
+		if (!formStarted) {
+			formStarted = true;
+			pushSafeFormEvent('form_start', $form.attr('id'));
+		}
+	});
 	if ($form.length && !$form.data('validator')) {
 		$form.validate({
 			errorElement: "span",
@@ -38,9 +53,15 @@ window.initModonFormValidation = function () {
 		});
 	}
 
-	$('#00NHp00000rkes6').val($.urlParam('utm_source').replace(/%20/g, " "));
-	$('#00NHp00000rkeyC').val($.urlParam('utm_campaign').replace(/%20/g, " "));
-	$('#00NVH000004mXYr').val($.urlParam('utm_medium').replace(/%20/g, " "));
+	var getSafeUtm = function(key) {
+		var val = sessionStorage.getItem(key);
+		if (val) return val;
+		var urlVal = $.urlParam ? $.urlParam(key) : "";
+		return urlVal ? urlVal.replace(/%20/g, " ") : "";
+	};
+	$('#00NHp00000rkes6').val(getSafeUtm('utm_source'));
+	$('#00NHp00000rkeyC').val(getSafeUtm('utm_campaign'));
+	$('#00NVH000004mXYr').val(getSafeUtm('utm_medium'));
 	$('#00NVH000005PrKn').val(window.location.href); // utm Url
 
 	$("#first_name,#last_name").on('input', function () {
@@ -85,6 +106,9 @@ function validate(event) {
 	var form = $("#generic-project-form");
 	if (!form.valid()) {
 		event.preventDefault();
+		pushSafeFormEvent('form_validation_error', 'generic-project-form');
+	} else {
+		pushSafeFormEvent('form_submit_attempt', 'generic-project-form');
 	}
 }
 

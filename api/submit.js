@@ -115,12 +115,18 @@ export default async function handler(req, res) {
 
         // Redirect safely to the success page as per standard form submission behavior
         if (redirectUrl) {
-            return res.redirect(302, redirectUrl);
+            const separator = redirectUrl.includes('?') ? '&' : '?';
+            return res.redirect(302, `${redirectUrl}${separator}lead_success=1`);
         } else {
             return res.status(200).send('Form submitted successfully, but no redirectUrl was provided.');
         }
     } catch (error) {
         console.error('Error handling form submission:', error);
+        const referer = req.headers.referer;
+        if (referer) {
+            const separator = referer.includes('?') ? '&' : '?';
+            return res.redirect(302, `${referer}${separator}lead_error=1&error_type=server_error`);
+        }
         return res.status(500).json({ error: 'Internal Server Error' });
     }
 }
