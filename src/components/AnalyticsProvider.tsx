@@ -34,12 +34,14 @@ export default function AnalyticsProvider({ children }: { children: React.ReactN
         page_title: document.title,
       });
 
-      // Fire Google Ads conversion exactly once
+      // Fire Google Ads conversion exactly once ONLY on Thank You pages
       const gadsConversionId = import.meta.env.VITE_GOOGLE_ADS_CONVERSION_ID;
       const gadsConversionLabel = import.meta.env.VITE_GOOGLE_ADS_CONVERSION_LABEL;
-      if (gadsConversionId && gadsConversionLabel && typeof (window as any).gtag === 'function') {
+      const isThankYouPage = location.pathname.includes('thank-you');
+      
+      if (isThankYouPage && gadsConversionId && gadsConversionLabel && typeof (window as any).gtag === 'function') {
         (window as any).gtag('event', 'conversion', {
-          send_to: `${gadsConversionId}/${gadsConversionLabel}`,
+          send_to: `AW-${gadsConversionId}/${gadsConversionLabel}`,
         });
       }
 
