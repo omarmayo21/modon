@@ -34,8 +34,7 @@ export default function ContactUs() {
 								</div>
 
 								<form className="form contact" id="generic-project-form" action="/api/submit" method="POST">
-									<input type="hidden" name="oid" value="00DHp0000025zhx" />
-									<input type="hidden" name="retURL" value={window.location.origin + "/contact-us/thank-you"} />
+									<input type="hidden" name="redirectUrl" value="/contact-us/thank-you" />
 
 									<div className="form-group">
 										<label htmlFor="first_name">First Name*</label>

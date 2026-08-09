@@ -274,15 +274,32 @@ $.validator.setDefaults({
 		$(this).val($(this).val().replace(/[^A-Za-z+\s]/g, ''))
 	});
 
-	$('#SFFormSubmit').off('click').on('click', function () {
+	$('#generic-project-form').off('submit').on('submit', function () {
 		if ($('#PhoneNumber').valid()) {
-			$("#PhoneNumber").removeAttr('name');
-			$("#consentCheck").removeAttr('name');
-			var phoneCode = $("#generic-project-form").find('.iti__selected-dial-code').text().replace("+", "");
-			var phoneNumberValue = $("#generic-project-form").find("#PhoneNumber").val();
+			var iti = window.intlTelInputGlobals ? window.intlTelInputGlobals.getInstance(document.querySelector("#PhoneNumber")) : null;
+			if (iti) {
+				var countryData = iti.getSelectedCountryData();
+				var dialCode = "+" + countryData.dialCode;
+				var rawMobile = iti.getNumber();
+				var countryName = countryData.name;
 
-			$("#generic-project-form").find("#00NVH000003TdQr").val(phoneCode);
-			$("#generic-project-form").find("#mobile").val(phoneNumberValue);
+				$(this).find("#00NVH000003TdQr").val(dialCode);
+				$(this).find("#mobile").val(rawMobile);
+
+				if ($(this).find("input[name='CountryName']").length === 0) {
+					$("<input>").attr({ type: "hidden", name: "CountryName", value: countryName }).appendTo(this);
+				} else {
+					$(this).find("input[name='CountryName']").val(countryName);
+				}
+			} else {
+				var phoneCode = $(this).find('.iti__selected-dial-code').text();
+				var phoneNumberValue = $(this).find("#PhoneNumber").val();
+				$(this).find("#00NVH000003TdQr").val(phoneCode);
+				$(this).find("#mobile").val(phoneNumberValue);
+			}
+
+			// We do NOT remove name='PhoneNumber' so the input value is also sent to backend
+			$("#consentCheck").removeAttr('name');
 		}
 	});
 

@@ -403,8 +403,7 @@ export default function RasElHekma() {
 			</div>
 
 	<form className="form contact" id="generic-project-form" action="/api/submit" method="POST">
-		<input type="hidden" name="oid" value="00DHp0000025zhx" />
-		<input type="hidden" name="retURL" value={window.location.origin + "/real-estate/ras-el-hekma/thank-you"} />
+		<input type="hidden" name="redirectUrl" value="/real-estate/ras-el-hekma/thank-you" />
 
 		<div className="form-group">
 			<label htmlFor="first_name">First Name*</label>

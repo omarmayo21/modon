@@ -17,12 +17,13 @@ export default async function handler(req, res) {
             email,
             PhoneNumber,
             mobile,
+            CountryName,
             '00NVH000003TdQr': countryCode,
             '00NVH000002y6iv': countryOfResidence,
             '00NVH00000303CJ': preferredContactTime,
             '00NHp00000lQiTk': nationality,
             '00NHp00000lQiTv': purposeOfUse,
-            retURL
+            redirectUrl
         } = body;
 
         // Build HTML Email Content
@@ -32,8 +33,9 @@ export default async function handler(req, res) {
             <p><strong>Last Name:</strong> ${last_name || 'N/A'}</p>
             <p><strong>Email:</strong> ${email || 'N/A'}</p>
             <p><strong>Mobile (Input):</strong> ${PhoneNumber || 'N/A'}</p>
+            <p><strong>Country:</strong> ${CountryName || 'N/A'}</p>
             <p><strong>Country Code:</strong> ${countryCode || 'N/A'}</p>
-            <p><strong>Raw Mobile (Hidden):</strong> ${mobile || 'N/A'}</p>
+            <p><strong>Raw Mobile:</strong> ${mobile || 'N/A'}</p>
             <p><strong>Country of Residence:</strong> ${countryOfResidence || 'N/A'}</p>
             <p><strong>Preferred Contact Time:</strong> ${preferredContactTime || 'N/A'}</p>
             <p><strong>Nationality:</strong> ${nationality || 'N/A'}</p>
@@ -44,8 +46,8 @@ export default async function handler(req, res) {
 
         // Dynamically add all fields just in case they aren't explicitly destructured above
         for (const [key, value] of Object.entries(body)) {
-            // Skip retURL, oid, and fields we already added
-            if (['retURL', 'oid', 'first_name', 'last_name', 'email', 'PhoneNumber', 'mobile', 
+            // Skip redirectUrl, and fields we already added
+            if (['redirectUrl', 'first_name', 'last_name', 'email', 'PhoneNumber', 'mobile', 'CountryName',
                  '00NVH000003TdQr', '00NVH000002y6iv', '00NVH00000303CJ', '00NHp00000lQiTk', '00NHp00000lQiTv'].includes(key)) {
                 continue;
             }
@@ -74,10 +76,10 @@ export default async function handler(req, res) {
         console.log('Email sent successfully!');
 
         // Redirect safely to the success page as per standard form submission behavior
-        if (retURL) {
-            return res.redirect(302, retURL);
+        if (redirectUrl) {
+            return res.redirect(302, redirectUrl);
         } else {
-            return res.status(200).send('Form submitted successfully, but no retURL was provided.');
+            return res.status(200).send('Form submitted successfully, but no redirectUrl was provided.');
         }
     } catch (error) {
         console.error('Error handling form submission:', error);
