@@ -136,37 +136,18 @@ export default async function handler(req, res) {
                 const meta = await sheets.spreadsheets.get({ spreadsheetId: sheetId });
                 const firstSheetTitle = meta.data.sheets[0].properties.title;
 
-                // 2. Prepare the row data
+                // 2. Prepare the row data with exactly the 9 requested fields
                 const row = [
-                    new Date().toISOString(),
                     first_name || '',
                     last_name || '',
                     email || '',
-                    mobile || PhoneNumber || '',
-                    countryCode || '',
+                    `${countryCode ? countryCode + ' ' : ''}${mobile || PhoneNumber || ''}`.trim(),
                     countryOfResidence || '',
                     preferredContactTime || '',
                     nationality || '',
                     purposeOfUse || '',
-                    brandCompany || '',
-                    project || '',
-                    leadSource || '',
-                    consentCheck || '',
-                    utmSource || '',
-                    utmMedium || '',
-                    utmCampaign || '',
-                    body['utm_term'] || '',     // Just in case it exists in body
-                    body['utm_content'] || '',  // Just in case it exists in body
-                    body['gclid'] || '',
-                    body['fbclid'] || ''
+                    project || ''
                 ];
-
-                // Append any unknown tracking fields at the end
-                for (const [key, value] of Object.entries(body)) {
-                    if (!knownFields.includes(key) && !['utm_term', 'utm_content', 'gclid', 'fbclid'].includes(key) && value) {
-                        row.push(`${key}: ${value}`);
-                    }
-                }
 
                 // 3. Append to the first sheet
                 await sheets.spreadsheets.values.append({
