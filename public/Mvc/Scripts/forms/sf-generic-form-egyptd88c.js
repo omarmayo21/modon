@@ -21,13 +21,10 @@ window.initModonFormValidation = function () {
 			errorElement: "span",
 			rules: {
 				first_name: { required: true },
-				last_name: { required: true },
 				email: { loqateemail: true },
 				PhoneNumber: { loqatephone: true },
 				'00NVH000002y6iv': { required: true },
 				'00NVH00000303CJ': { required: true },
-				'00NHp00000lQiTk': { required: true },
-				'00NHp00000lQiTv': { required: true },
 				consentCheck: {
 					required: function (elem) {
 						if (!$('#consentCheck').is(':checked')) {
@@ -40,14 +37,11 @@ window.initModonFormValidation = function () {
 				}
 			},
 			messages: {
-				first_name: $("#FirstNameErrorMessage").val(),
-				last_name: $("#LastNameErrorMessage").val(),
-				PhoneNumber: $("#PhoneErrorMessage").val(),
-				email: $("#EmailErrorMessage").val(),
-				'00NVH000002y6iv': $("#CountryErrorMessage").val(),
-				'00NVH00000303CJ': $("#PreferedContactTimeErrorMessage").val(),
-				'00NHp00000lQiTk': $("#NationalityErrorMessage").val(),
-				'00NHp00000lQiTv': $("#PurposeOfUseErrorMessage").val(),
+				first_name: $("#FirstNameErrorMessage").val() || "Please enter your first name.",
+				PhoneNumber: $("#PhoneErrorMessage").val() || "Please enter valid phone number.",
+				email: $("#EmailErrorMessage").val() || "Please enter a valid email address.",
+				'00NVH000002y6iv': ($("#CountryErrorMessage").val() && $("#CountryErrorMessage").val() !== "CountryErrorMessage") ? $("#CountryErrorMessage").val() : "Please select your country of residence.",
+				'00NVH00000303CJ': ($("#PreferedContactTimeErrorMessage").val() && $("#PreferedContactTimeErrorMessage").val() !== "PreferedContactTimeErrorMessage") ? $("#PreferedContactTimeErrorMessage").val() : "Please select preferred contact time.",
 				consentCheck: ''
 			}
 		});
@@ -178,6 +172,9 @@ jQuery.validator.addMethod("loqatephone", function (value, element) {
 }, "wrong phone number");
 
 jQuery.validator.addMethod("loqateemail", function (value, element) {
+	if (this.optional(element) || !value || value.trim() === '') {
+		return true;
+	}
 	let isValid = false;
 	if (!$(element).hasClass('loqateValid') || $(element).hasClass('error')) {
 		// Perform synchronous AJAX request
@@ -242,9 +239,9 @@ $(".phone").on('input', function () {
 });
 
 function onSFFormload() {
-	var element = $('#generic-project-form');
-	if (element.length) {
-		element[0].onclick = validate;
+	var submitBtn = $('#SFFormSubmit');
+	if (submitBtn.length) {
+		submitBtn.off('click', validate).on('click', validate);
 	}
 }
 
