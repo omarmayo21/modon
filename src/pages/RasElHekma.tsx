@@ -856,7 +856,7 @@ export default function RasElHekma() {
 		<div className="container">
 			<div className="row">
 				<div className="col-12">
-					<div className="reh-map-wrapper">
+					{/* <div className="reh-map-wrapper">
 						<MapContainer 
 							center={[31.2150002, 27.813904]} 
 							zoom={13} 
@@ -875,7 +875,7 @@ export default function RasElHekma() {
 								</Popup>
 							</Marker>
 						</MapContainer>
-					</div>
+					</div> */}
 				</div>
 			</div>
 		</div>
